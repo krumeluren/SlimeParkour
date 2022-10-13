@@ -42,7 +42,6 @@ public class Controller : MonoBehaviour
         if (onGround && jumpCooldown <= 0)
             canJump = true;
 
-        float horizontalInput = Input.GetAxis("Horizontal");
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -52,6 +51,15 @@ public class Controller : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             rb.AddForce(Vector2.right * speed);
+        }
+        if (Input.GetKey(KeyCode.W ) && onGround)
+        {
+            rb.AddForce(Vector2.up * speed);
+        }
+        
+        else if (Input.GetKey(KeyCode.S) && onGround)
+        {
+            rb.AddForce(Vector2.down * speed);
         }
 
     }
@@ -97,8 +105,18 @@ public class Controller : MonoBehaviour
         ResetAfterJump();
     }
 
-    public void OnTriggerStay2D(Collider2D collider) =>
-        onGround = collider.gameObject.CompareTag("Ground") ? true : false;
+    public void OnTriggerStay2D(Collider2D collider) 
+    {
+        if (onGround)
+            return;
+        if (collider.gameObject.CompareTag("Ground"))
+        {
+            onGround = true;
+        }
+
+    }
+    
+        
 
 
     public void OnTriggerExit2D(Collider2D collider)

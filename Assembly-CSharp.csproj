@@ -56,9 +56,9 @@
     <Analyzer Include="D:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Controller.cs" />
-    <Compile Include="Assets\PlayerCamera.cs" />
-    <Compile Include="Assets\CameraZoomController.cs" />
+    <Compile Include="Assets\Script\CameraZoomController.cs" />
+    <Compile Include="Assets\Script\PlayerCamera.cs" />
+    <Compile Include="Assets\Script\Controller.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
